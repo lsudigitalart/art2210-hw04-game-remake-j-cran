@@ -26,9 +26,9 @@ function setup(){
 }
 
 function draw(){
-    background(20,20, 35);
+    background(201,200,235);
 
-    fill(255);
+    fill(0);
     textSize(18);
     textAlign(LEFT);
     text("Stay out of the red boxes!",10,30);
@@ -38,12 +38,13 @@ function draw(){
     if(keyIsPressed == true && key == "g"){
         start = true;
         kTime=true;
+        score=0;
     }
     
     if(start===true){
         playGame();
     } else {
-        fill(255);
+        fill(0);
         textSize(36);
         textAlign(CENTER);
         text("Press G to start", width/2,height/2);
@@ -72,22 +73,22 @@ function playGame(){
     }
 
         fill(fillColor1);
-        rect(350,100,150,height);
+        rect(350,0,150,height);
 
         fill(fillColor2);
-        rect(500,100,150,height);
+        rect(500,0,150,height);
 
         fill(fillColor3);
-        rect(650,100,150,height);
+        rect(650,0,150,height);
 
         fill(fillColor4);
-        rect(800,100,150,height);
+        rect(800,0,150,height);
 
         fill(fillColor5);
-        rect(950,100,150,height);
+        rect(950,0,150,height);
         
         fill(fillColor6);
-        rect(1100,100,150,height);
+        rect(1100,0,150,height);
 
 // Get player red value
     let currentColour=get(mouseX,mouseY);
