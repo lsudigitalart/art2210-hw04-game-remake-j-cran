@@ -26,7 +26,7 @@ function setup(){
 }
 
 function draw(){
-    background(201,200,235);
+    background(201,199,199);
 
     fill(0);
     textSize(18);
