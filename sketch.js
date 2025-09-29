@@ -93,10 +93,14 @@ function playGame(){
 // Get player red value
     let currentColour=get(mouseX,mouseY);
     let redValue;
+    let blueValue;
+    let greenValue;
     redValue = red(currentColour);
+    blueValue = blue(currentColour);
+    greenValue = green(currentColour)
 
 // End game if in red
-    if(redValue > 200 && kCount>40){
+    if(redValue > 200 && blueValue < 200 && greenValue < 200 && kCount>40){
         endGame();
     } else {
         score++
