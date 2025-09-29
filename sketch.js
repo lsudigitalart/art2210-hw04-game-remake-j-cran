@@ -2,27 +2,38 @@ let start = false;
 let score = 0;
 let kTime=false;
 let kCount=0;
-let rectColour=(0,0,0)
-var r;
-var g;
-var b; 
+let fillColor1;
+let fillColor2;
+let fillColor3;
+let fillColor4;
+let fillColor5;
+let fillColor6;
+
+
 
 // need to fix the colour staying after changing, each rect changing individually
 
 function setup(){
     createCanvas(windowWidth/1.05,windowHeight/1.2);
+    // fillColor = color(40)
+        fillColor1 = color(random(255),random(200),random(200));
+        fillColor2 = color(random(255),random(200),random(200));
+        fillColor3 = color(random(255),random(200),random(200));
+        fillColor4 = color(random(255),random(200),random(200));
+        fillColor5 = color(random(255),random(200),random(200));
+        fillColor6 = color(random(255),random(200),random(200));
 
 }
 
 function draw(){
-    background(20,20,35);
-    r=random(255);
-    g=random(200);
-    b=random(200);
+    background(20,20, 35);
 
     fill(255);
     textSize(18);
-    text("Stay out of the red boxes!",115,30);
+    textAlign(LEFT);
+    text("Stay out of the red boxes!",10,30);
+    text("Score",10,50);
+    text(score,10,70);
 
     if(keyIsPressed == true && key == "g"){
         start = true;
@@ -35,13 +46,13 @@ function draw(){
         fill(255);
         textSize(36);
         textAlign(CENTER);
-        text("Press G to start!", width/2,height/2);
+        text("Press G to start", width/2,height/2);
     }
 
 
 
 function playGame(){
-    fill(200,200,200);
+// fill(40);
 
 // Change colour every couple seconds
     if(kTime=true){
@@ -49,16 +60,34 @@ function playGame(){
     }
     
     if(kCount>50){
-        fill(random(255),random(200),random(200),);
+        // fill(random(255),random(200),random(200));
+        fillColor1 = color(random(255),random(230),random(230));
+        fillColor2 = color(random(255),random(230),random(230));
+        fillColor3 = color(random(255),random(230),random(230));
+        fillColor4 = color(random(255),random(230),random(230));
+        fillColor5 = color(random(255),random(230),random(230));
+        fillColor6 = color(random(255),random(230),random(230));
+
         kCount=0;
     }
-      
-        rect(350,200,150,150);
-        rect(500,200,150,150);
-        rect(650,200,150,150);
-        rect(800,200,150,150);
-        rect(950,200,150,150);
-        rect(1100,200,150,150);
+
+        fill(fillColor1);
+        rect(350,100,150,height);
+
+        fill(fillColor2);
+        rect(500,100,150,height);
+
+        fill(fillColor3);
+        rect(650,100,150,height);
+
+        fill(fillColor4);
+        rect(800,100,150,height);
+
+        fill(fillColor5);
+        rect(950,100,150,height);
+        
+        fill(fillColor6);
+        rect(1100,100,150,height);
 
 // Get player red value
     let currentColour=get(mouseX,mouseY);
@@ -66,7 +95,7 @@ function playGame(){
     redValue = red(currentColour);
 
 // End game if in red
-    if(redValue > 200){
+    if(redValue > 200 && kCount>40){
         endGame();
     } else {
         score++
@@ -76,8 +105,6 @@ function playGame(){
     fill(255);
     ellipse(mouseX,mouseY,30);
 
-    console.log(redValue);
-
 }
 
 function endGame(){
@@ -85,8 +112,7 @@ function endGame(){
         textSize(36);
         textAlign(CENTER);
         text("GAME OVER", width/2, height/2);
-        text("Score",width/2,height/1.7);
-        text(score,width/2,height/1.5);
+        start=false
     }
 }
 
